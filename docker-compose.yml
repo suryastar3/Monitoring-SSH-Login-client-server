@@ -1,0 +1,40 @@
+---
+version: '1'
+services:
+  python-alphaserver:
+    container_name: alphaserver
+    image: python-alphaserver
+    build: ./alphaserver
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.140
+    tty: true
+
+  python-alphaclient-1:
+    container_name: alphaclient1
+    image: python-alphaclient
+    build: ./alphaclient
+    depends_on:
+      - python-alphaserver
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.141
+    tty: true
+
+  python-alphaclient-2:
+    container_name: alphaclient2
+    image: python-alphaclient
+    build: ./alphaclient
+    depends_on:
+      - python-alphaserver
+    networks:
+      vpcbr:
+        ipv4_address: 192.168.0.142
+    tty: true
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/16
