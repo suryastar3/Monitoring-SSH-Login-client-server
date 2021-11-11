@@ -3,10 +3,12 @@ alphaserver and alphaclient
 -----------------------------------------------------------------------
 Prerequisite
 -----------------------------------------------------------------------
-Before we go we need the following application installed on the system
+Before we go we need the following application installed on the system:
 
 docker
 docker-compose
+
+THEN
 
 (ALPHA SERVER - 192.168.0.140)
  - Running machine or docker
