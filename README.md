@@ -22,10 +22,10 @@ Settings the network to bridge (192.168.0.140)
  (PermitRootLogin yes)
  
  restart ssh system:
- systemctl restart ssh
+ -systemctl restart ssh
  
  check status ssh:
- systemctl status ssh
+ -systemctl status ssh
  
  Next create file "alphaserver.py" as a service to monitoring ssh login attemps
  
@@ -45,10 +45,10 @@ Settings the network to bridge (192.168.0.141)
  (PermitRootLogin yes)
  
  restart ssh system:
- systemctl restart ssh
+ - systemctl restart ssh
  
  check status ssh:
- systemctl status ssh
+ - systemctl status ssh
  
  Next create file "alphaclient1.py" to get data login attemps from /var/log/auth.log
  
@@ -68,10 +68,10 @@ Settings the network to bridge (192.168.0.142)
  (PermitRootLogin yes)
  
  restart ssh system:
- systemctl restart ssh
+ - systemctl restart ssh
  
  check status ssh:
- systemctl status ssh
+ - systemctl status ssh
  
  Next create file "alphaclient2.py" to get data login attemps from /var/log/auth.log
  
