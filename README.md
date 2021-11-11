@@ -5,8 +5,8 @@ Prerequisite
 -----------------------------------------------------------------------
 Before we go we need the following application installed on the system:
 
-docker
-docker-compose
+- docker
+- docker-compose
 
 OR
 
