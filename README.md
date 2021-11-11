@@ -8,6 +8,76 @@ Before we go we need the following application installed on the system:
 docker
 docker-compose
 
+OR
+
+SERVER
+-----------------------------------------------------------------------
+Install Ubuntu 20.04:
+Settings the network to bridge (192.168.0.140)
+ - apt-get update -y
+ - apt-get install -y openssh-server
+ - apt-get install -y python3-pip
+ 
+ Next uncommand PermitRootLogin in /etc/ssh/sshd_config and change like this:
+ (PermitRootLogin yes)
+ 
+ restart ssh system:
+ systemctl restart ssh
+ 
+ check status ssh:
+ systemctl status ssh
+ 
+ Next create file "alphaserver.py" as a service to monitoring ssh login attemps
+ 
+ Next create file bash script "run.sh"
+ python3 ./alphaserver.py
+ 
+CLIENT 1
+-----------------------------------------------------------------------
+Install Ubuntu 20.04:
+Settings the network to bridge (192.168.0.141)
+ - apt-get update -y
+ - apt-get install -y openssh-server
+ - apt-get install -y python3-pip
+ - pip install tailer
+ 
+ Next uncommand PermitRootLogin in /etc/ssh/sshd_config and change like this:
+ (PermitRootLogin yes)
+ 
+ restart ssh system:
+ systemctl restart ssh
+ 
+ check status ssh:
+ systemctl status ssh
+ 
+ Next create file "alphaclient1.py" to get data login attemps from /var/log/auth.log
+ 
+ Next create file bash script "run.sh"
+ python3 ./alphaclient1.py
+
+CLIENT 2
+-----------------------------------------------------------------------
+Install Ubuntu 20.04:
+Settings the network to bridge (192.168.0.142)
+ - apt-get update -y
+ - apt-get install -y openssh-server
+ - apt-get install -y python3-pip
+ - pip install tailer
+ 
+ Next change PermitRootLogin in /etc/ssh/sshd_config
+ (PermitRootLogin yes)
+ 
+ restart ssh system:
+ systemctl restart ssh
+ 
+ check status ssh:
+ systemctl status ssh
+ 
+ Next create file "alphaclient2.py" to get data login attemps from /var/log/auth.log
+ 
+ Next create file bash script "run.sh"
+ python3 ./alphaclient2.py
+
 THEN
 
 (ALPHA SERVER - 192.168.0.140)
